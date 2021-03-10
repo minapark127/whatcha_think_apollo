@@ -1,29 +1,6 @@
 import { useQuery, gql } from "@apollo/client";
 import ReviewCard from "../components/ReviewCard";
-
-interface Link {
-  url: string;
-  suggested_link_text: string;
-}
-
-interface Multimedia {
-  src: string;
-  width: number;
-  height: number;
-}
-
-interface Review {
-  display_title: string;
-  critics_pick: number;
-  byline: string;
-  headline: string;
-  summary_short: string;
-  publication_date: string;
-  opening_date: string;
-  date_updated: string;
-  link: Link;
-  multimedia: Multimedia;
-}
+import { Review } from "../apiSchema";
 
 interface Reviews {
   reviews: Review[];
