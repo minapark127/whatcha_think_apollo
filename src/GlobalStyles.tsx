@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
 
     body{
         font-size: 16px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: ${(props) => props.theme.fonts.main};
         color: ${(props) => props.theme.colors.black};
     }
     
