@@ -13,6 +13,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 16px;
         font-family: ${(props) => props.theme.fonts.main};
         color: ${(props) => props.theme.colors.black};
+        background-color:${(props) => props.theme.colors.lightGrey};
     }
     
     a{

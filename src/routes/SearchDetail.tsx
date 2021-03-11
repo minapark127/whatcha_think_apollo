@@ -19,7 +19,6 @@ const SearchDetail = () => {
   const { loading, error, data } = useQuery<IReview, ISearchVars>(GET_REVIEW, {
     variables: { query },
   });
-  console.log(data);
   return (
     <>
       <div>showing results for '{query}'...</div>
