@@ -1,6 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import ReviewCard from "../components/ReviewCard";
 import { Review } from "../apiSchema";
+import SearchForm from "../components/SearchForm";
 
 interface Reviews {
   reviews: Review[];
@@ -27,6 +28,7 @@ const Home = () => {
   });
   return (
     <>
+      <SearchForm />
       {loading ? <h1>loading...</h1> : null}
       {error ? <h1>ERROR!</h1> : null}
       {!loading && data?.reviews && (

@@ -6,11 +6,11 @@ interface IParams {
   title: string;
 }
 
-interface IReview {
+export interface IReview {
   search: Review[];
 }
 
-interface ISearchVars {
+export interface ISearchVars {
   query: string;
 }
 
