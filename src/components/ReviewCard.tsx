@@ -24,8 +24,8 @@ const ReviewCard: React.FunctionComponent<IProps> = ({
     <Container>
       <Link to={`/review/${encodedTitle}`}>
         <img src={imgSrc} width="250" alt={display_title} />
-        <h2>{display_title}</h2>
       </Link>
+      <h2>{display_title}</h2>
     </Container>
   );
 };
