@@ -20,7 +20,11 @@ const SearchForm: React.FunctionComponent = () => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <Input onChange={onChange} type="text" />
+      <Input
+        onChange={onChange}
+        type="text"
+        placeholder="browse movie reviews by The New York Times..."
+      />
     </Form>
   );
 };
@@ -32,7 +36,6 @@ const Input = styled.input`
   all: unset;
   width: 100%;
   border-bottom: 1px solid ${(props) => props.theme.colors.warmGrey};
-  margin-left: 3px;
   padding: 3px;
 `;
 

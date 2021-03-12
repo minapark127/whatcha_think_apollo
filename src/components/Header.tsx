@@ -33,7 +33,7 @@ const Header = () => {
         <SearchContainer animation={showSearch}>
           <IconWrapper onClick={toggleForm}>
             <IconContext.Provider
-              value={{ size: "1.2em", className: "searchIcon" }}
+              value={{ size: "1.5em", className: "searchIcon" }}
             >
               <RiSearchLine />
             </IconContext.Provider>
@@ -50,7 +50,7 @@ const slideAnimation = css`
 `;
 
 const SHeader = styled.header`
-  padding: 0.5em 1rem;
+  padding: 0.5em 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,6 +59,7 @@ const SHeader = styled.header`
 const Logo = styled.h1`
   font-family: ${(props) => props.theme.fonts.title};
   font-size: 2rem;
+  text-transform: uppercase;
 `;
 
 const SearchContainer = styled.section<{ animation: boolean }>`
@@ -71,5 +72,8 @@ const SearchContainer = styled.section<{ animation: boolean }>`
   }
 `;
 
-const IconWrapper = styled.div<WrapperProps>``;
+const IconWrapper = styled.div<WrapperProps>`
+  padding: 0 0.3rem;
+`;
+
 export default Header;

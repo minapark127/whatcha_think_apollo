@@ -17,8 +17,6 @@ const GET_REVIEWS = gql`
     reviews(limit: $limit) {
       display_title
       byline
-      summary_short
-      publication_date
       multimedia {
         src
       }
@@ -41,9 +39,7 @@ const Home = () => {
               key={index}
               displayTitle={review.display_title}
               imgSrc={review.multimedia?.src}
-              summaryShort={review.summary_short}
               byline={review.byline}
-              publicationDate={review.publication_date}
             ></ReviewCard>
           ))}
         </ReviewsGrid>
