@@ -16,5 +16,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/GlobalStyles.tsx", "theme.tsx", "styled.d.ts"]
+  "include": [
+    "src",
+    "src/styles/GlobalStyles.tsx",
+    "src/styles/theme.tsx",
+    "styled.d.ts"
+  ]
 }

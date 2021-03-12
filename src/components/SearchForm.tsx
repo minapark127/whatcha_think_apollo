@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router";
+import styled from "styled-components";
 
 const SearchForm: React.FunctionComponent = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -18,10 +19,21 @@ const SearchForm: React.FunctionComponent = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <input onChange={onChange} type="text"></input>
-    </form>
+    <Form onSubmit={onSubmit}>
+      <Input onChange={onChange} type="text" />
+    </Form>
   );
 };
+
+const Form = styled.form`
+  width: 25vw;
+`;
+const Input = styled.input`
+  all: unset;
+  width: 100%;
+  border-bottom: 1px solid ${(props) => props.theme.colors.warmGrey};
+  margin-left: 3px;
+  padding: 3px;
+`;
 
 export default SearchForm;

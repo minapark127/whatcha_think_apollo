@@ -3,11 +3,13 @@ import Home from "../routes/Home";
 import ReviewDetail from "../routes/ReviewDetail";
 import ReviewerDetail from "../routes/ReviewerDetail";
 import SearchDetail from "../routes/SearchDetail";
+import Header from "./Header";
 
 function App() {
   return (
     <div className="App">
       <HashRouter>
+        <Header />
         <Route exact path="/" component={Home} />
         <Route path="/review/:title" component={ReviewDetail} />
         <Route path="/reviewer/:reviewer" component={ReviewerDetail} />
