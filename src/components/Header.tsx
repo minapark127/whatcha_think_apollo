@@ -58,7 +58,7 @@ const SHeader = styled.header`
 
 const Logo = styled.h1`
   font-family: ${(props) => props.theme.fonts.title};
-  font-size: 2.7rem;
+  font-size: 2rem;
 `;
 
 const SearchContainer = styled.section<{ animation: boolean }>`

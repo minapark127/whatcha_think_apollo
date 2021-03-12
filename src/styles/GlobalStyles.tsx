@@ -15,6 +15,10 @@ const GlobalStyles = createGlobalStyle`
         color: ${(props) => props.theme.colors.black};
         background-color:${(props) => props.theme.colors.lightGrey};
     }
+
+    main{
+        margin-top: 2rem;
+    }
     
     a{
         text-decoration: none;

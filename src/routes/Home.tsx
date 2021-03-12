@@ -1,7 +1,7 @@
 import { useQuery, gql } from "@apollo/client";
 import ReviewCard from "../components/ReviewCard";
 import { Review } from "../apiSchema";
-import styled from "styled-components";
+import ReviewsGrid from "../components/ReviewsGrid";
 
 interface Reviews {
   reviews: Review[];
@@ -34,31 +34,21 @@ const Home = () => {
       {loading ? <h1>loading...</h1> : null}
       {error ? <h1>ERROR!</h1> : null}
       {!loading && data?.reviews && (
-        <>
-          <h1>Latest critic's picks</h1>
-          <Grid>
-            {data.reviews.map((review, index) => (
-              <ReviewCard
-                key={index}
-                displayTitle={review.display_title}
-                imgSrc={review.multimedia?.src}
-                summaryShort={review.summary_short}
-                byline={review.byline}
-                publicationDate={review.publication_date}
-              ></ReviewCard>
-            ))}
-          </Grid>
-        </>
+        <ReviewsGrid>
+          {data.reviews.map((review, index) => (
+            <ReviewCard
+              key={index}
+              displayTitle={review.display_title}
+              imgSrc={review.multimedia?.src}
+              summaryShort={review.summary_short}
+              byline={review.byline}
+              publicationDate={review.publication_date}
+            ></ReviewCard>
+          ))}
+        </ReviewsGrid>
       )}
     </>
   );
 };
-
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  padding: 1rem;
-  grid-gap: 1em;
-`;
 
 export default Home;

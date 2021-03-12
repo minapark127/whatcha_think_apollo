@@ -42,9 +42,9 @@ const ReviewCard: React.FunctionComponent<IProps> = ({
 };
 
 const H2 = styled.h2`
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.23;
   margin: 0.5em 0;
   &:hover {
     text-decoration: underline;
