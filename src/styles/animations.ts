@@ -13,3 +13,13 @@ export const slideLeft = keyframes`
     opacity: 1;
     }
 `;
+
+export const loadingAnimation = keyframes`
+    50% {
+        opacity: 0.25;
+    }
+    
+    100% {
+        opacity: 1;
+    }
+`;

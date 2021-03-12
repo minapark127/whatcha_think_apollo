@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import ReviewCard from "../components/ReviewCard";
 import { Review } from "../apiSchema";
 import ReviewsGrid from "../components/ReviewsGrid";
+import Loading from "../components/Loading";
 
 interface Reviews {
   reviews: Review[];
@@ -31,7 +32,7 @@ const Home = () => {
   });
   return (
     <>
-      {loading ? <h1>loading...</h1> : null}
+      {loading ? <Loading /> : null}
       {error ? <h1>ERROR!</h1> : null}
       {!loading && data?.reviews && (
         <ReviewsGrid>
