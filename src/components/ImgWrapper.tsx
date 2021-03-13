@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IProps {
-  scale?: boolean;
+  scale?: number;
 }
 
 const Wrapper = styled.figure<IProps>`

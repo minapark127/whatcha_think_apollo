@@ -18,7 +18,7 @@ const ReviewCard: React.FunctionComponent<IProps> = ({
   return (
     <Container>
       <Link to={`/review/${encodedTitle}`}>
-        <ImgWrapper scale={imgSrc ? true : false}>
+        <ImgWrapper scale={imgSrc ? 1 : 0}>
           <img
             src={imgSrc ? imgSrc : process.env.REACT_APP_ALT_IMG_URL}
             alt={imgSrc ? displayTitle : process.env.REACT_APP_ALT_IMG_DESC}
