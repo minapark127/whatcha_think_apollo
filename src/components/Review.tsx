@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { SiNewyorktimes } from "react-icons/si";
 import { RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
+import ImgWrapper from "./ImgWrapper";
 
 interface IProps {
   displayTitle: string;
@@ -66,20 +67,6 @@ const Wrapper = styled.section`
   line-height: 1.2;
   svg {
     margin-right: 3px;
-  }
-`;
-
-const ImgWrapper = styled.div`
-  position: relative;
-  background-color: ${(props) => props.theme.colors.warmGrey};
-  padding-top: 66.66%;
-  overflow: hidden;
-  img {
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    bottom: 0;
-    left: 0;
   }
 `;
 

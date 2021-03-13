@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import ImgWrapper from "./ImgWrapper";
 
 interface IProps {
   displayTitle: string;
@@ -52,27 +53,6 @@ const Container = styled.div`
     font-family: ${(props) => props.theme.fonts.title};
     padding: 0 0.5rem;
     margin-top: 0.5em;
-  }
-`;
-
-const ImgWrapper = styled.div<{ scale: boolean }>`
-  position: relative;
-  width: 100%;
-  background-color: ${(props) => props.theme.colors.warmGrey};
-  padding-top: 66.66%;
-  overflow: hidden;
-  &:hover {
-    img {
-      transform: ${(props) => (props.scale ? `scale(1.1)` : null)};
-      transition: transform 0.5s linear;
-    }
-  }
-  img {
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    bottom: 0;
-    left: 0;
   }
 `;
 
