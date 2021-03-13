@@ -13,7 +13,7 @@ interface IProps {
   publicationDate: string;
   linkUrl: string;
   suggestedLinkText: string;
-  imgSrc: string;
+  imgSrc?: string;
 }
 
 const Review: React.FunctionComponent<IProps> = ({

@@ -24,7 +24,6 @@ const ReviewCard: React.FunctionComponent<IProps> = ({
             alt={imgSrc ? displayTitle : process.env.REACT_APP_ALT_IMG_DESC}
           />
         </ImgWrapper>
-
         <H2>{displayTitle}</H2>
       </Link>
       <By>By {byline}</By>

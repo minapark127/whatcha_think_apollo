@@ -29,3 +29,7 @@ export interface IReview {
 export interface ISearchVars {
   query: string;
 }
+
+export interface IReviewer {
+  reviewer: Review[];
+}

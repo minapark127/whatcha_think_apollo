@@ -33,7 +33,7 @@ const Home = () => {
       {loading ? <Loading /> : null}
       {error ? <h1>ERROR!</h1> : null}
       {!loading && data?.reviews && (
-        <ReviewsGrid>
+        <ReviewsGrid title="Latest NYT Critic's Picks" home={true}>
           {data.reviews.map((review, index) => (
             <ReviewCard
               key={index}

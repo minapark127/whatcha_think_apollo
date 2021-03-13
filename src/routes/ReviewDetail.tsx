@@ -1,7 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { IReview, ISearchVars } from "../apiSchema";
+import { IReview, IReviewer, ISearchVars } from "../apiSchema";
 import Loading from "../components/Loading";
+import MoreReviews from "../components/MoreReviews";
 import Review from "../components/Review";
 
 interface IParams {
@@ -28,18 +29,43 @@ const GET_REVIEW = gql`
   }
 `;
 
+interface IRSearchVars {
+  reviewer: string | undefined;
+}
+
+const GET_REVIEWER = gql`
+  query reviewer($reviewer: String) {
+    reviewer(reviewer: $reviewer) {
+      display_title
+      headline
+      critics_pick
+      multimedia {
+        src
+      }
+    }
+  }
+`;
+
 const ReviewDetail: React.FunctionComponent = () => {
   const { title } = useParams<IParams>();
+
   const { loading, error, data } = useQuery<IReview, ISearchVars>(GET_REVIEW, {
     variables: { query: title },
   });
 
+  const { loading: Rloading, error: Rerror, data: Rdata } = useQuery<
+    IReviewer,
+    IRSearchVars
+  >(GET_REVIEWER, {
+    variables: { reviewer: data?.search[0].byline },
+  });
+
   return (
     <>
-      {loading ? <Loading /> : null}
-      {error ? <h1>ERROR!</h1> : null}
-      {!loading && data && (
-        <main>
+      <main>
+        {loading ? <Loading /> : null}
+        {error ? <h1>ERROR!</h1> : null}
+        {!loading && data && (
           <Review
             displayTitle={data?.search[0].display_title}
             byline={data?.search[0].byline}
@@ -49,10 +75,19 @@ const ReviewDetail: React.FunctionComponent = () => {
             publicationDate={data?.search[0].publication_date}
             linkUrl={data?.search[0].link.url}
             suggestedLinkText={data?.search[0].link.suggested_link_text}
-            imgSrc={data?.search[0].multimedia.src}
+            imgSrc={data?.search[0].multimedia?.src}
           />
-        </main>
-      )}
+        )}
+        {!loading && Rloading ? <Loading /> : null}
+        {Rerror ? <h1>ERROR!</h1> : null}
+        {!loading && data && !Rloading && Rdata && (
+          <MoreReviews
+            reviews={Rdata.reviewer}
+            reviewer={data?.search[0].byline}
+            currentTitle={data?.search[0].display_title}
+          />
+        )}
+      </main>
     </>
   );
 };

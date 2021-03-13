@@ -1,19 +1,16 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import { Review } from "../apiSchema";
+import { IReviewer } from "../apiSchema";
 
 interface IParams {
   reviewer: string;
 }
 
-interface IReviewer {
-  reviewer: Review[];
-}
-
-interface ISearchVars {
+export interface IReviewerSearchVars {
   reviewer: string;
 }
+
 const GET_REVIEWER = gql`
   query reviewer($reviewer: String) {
     reviewer(reviewer: $reviewer) {
@@ -26,7 +23,7 @@ const GET_REVIEWER = gql`
 const ReviewerDetail = () => {
   const { reviewer } = useParams<IParams>();
 
-  const { loading, error, data } = useQuery<IReviewer, ISearchVars>(
+  const { loading, error, data } = useQuery<IReviewer, IReviewerSearchVars>(
     GET_REVIEWER,
     {
       variables: { reviewer },
