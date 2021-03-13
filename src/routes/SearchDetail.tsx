@@ -1,10 +1,11 @@
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router";
-import { IReview, ISearchVars } from "./ReviewDetail";
+import { IReview, ISearchVars } from "../apiSchema";
 
 interface IParams {
   query: string;
 }
+
 const GET_REVIEW = gql`
   query search($query: String) {
     search(query: $query) {

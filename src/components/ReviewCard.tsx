@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const ALT_IMG_URL =
-  "https://developer.nytimes.com/files/poweredby_nytimes_200a.png?v=1583354208344";
-const ALT_IMG_DESC = "The New York Times Logo provided by The New York Times";
-
 interface IProps {
   displayTitle: string;
   imgSrc: string;
@@ -23,8 +19,8 @@ const ReviewCard: React.FunctionComponent<IProps> = ({
       <Link to={`/review/${encodedTitle}`}>
         <ImgWrapper scale={imgSrc ? true : false}>
           <img
-            src={imgSrc ? imgSrc : ALT_IMG_URL}
-            alt={imgSrc ? displayTitle : ALT_IMG_DESC}
+            src={imgSrc ? imgSrc : process.env.REACT_APP_ALT_IMG_URL}
+            alt={imgSrc ? displayTitle : process.env.REACT_APP_ALT_IMG_DESC}
           />
         </ImgWrapper>
 

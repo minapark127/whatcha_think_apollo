@@ -21,3 +21,11 @@ interface IMultimedia {
   width: number;
   height: number;
 }
+
+export interface IReview {
+  search: Review[];
+}
+
+export interface ISearchVars {
+  query: string;
+}

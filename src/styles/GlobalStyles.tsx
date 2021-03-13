@@ -17,7 +17,10 @@ const GlobalStyles = createGlobalStyle`
     }
 
     main{
-        margin-top: 2rem;
+        width: 100%;
+        max-width: 1200px;
+        min-height: 50vh;
+        margin: 3rem auto;
     }
     
     a{
