@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import SearchForm from "./SearchForm";
 import { IconContext } from "react-icons";
 import { RiSearchLine } from "react-icons/ri";
-import { slideLeft } from "../styles/animations";
+import { hiddenToShow } from "../styles/animations";
 
 interface WrapperProps {
   onClick: () => void;
@@ -46,7 +46,7 @@ const Header = () => {
 };
 
 const slideAnimation = css`
-  animation: ${slideLeft} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: ${hiddenToShow} 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 `;
 
 const SHeader = styled.header`

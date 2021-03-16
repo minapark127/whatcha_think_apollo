@@ -24,6 +24,7 @@ const SearchForm: React.FunctionComponent = () => {
         onChange={onChange}
         type="text"
         placeholder="browse movie reviews by The New York Times..."
+        autoFocus
       />
     </Form>
   );

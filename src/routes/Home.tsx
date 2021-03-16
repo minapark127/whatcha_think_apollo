@@ -3,6 +3,8 @@ import ReviewCard from "../components/ReviewCard";
 import { Review } from "../apiSchema";
 import ReviewsGrid from "../components/ReviewsGrid";
 import Loading from "../components/Loading";
+import SearchForm from "../components/SearchForm";
+import styled from "styled-components";
 
 interface Reviews {
   reviews: Review[];
@@ -30,6 +32,9 @@ const Home = () => {
   });
   return (
     <>
+      <Div>
+        <SearchForm />
+      </Div>
       {loading ? <Loading /> : null}
       {error ? <h1>ERROR!</h1> : null}
       {!loading && data?.reviews && (
@@ -47,5 +52,12 @@ const Home = () => {
     </>
   );
 };
+
+const Div = styled.div`
+  padding: 5rem 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 
 export default Home;
