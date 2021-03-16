@@ -10,13 +10,13 @@ interface IProps {
 }
 
 const MoreReviews: React.FC<IProps> = ({ reviews, reviewer, currentTitle }) => (
-  <ReviewsGrid title={`more reviews by ${reviewer}`} home={false}>
+  <ReviewsGrid title={`view more reviews by ${reviewer}`} home={false}>
     {reviews.slice(0, 8).map((review, index) => (
       <React.Fragment key={index}>
         {review.display_title !== currentTitle && (
           <ReviewCard
             displayTitle={review.display_title}
-            imgSrc={review.multimedia.src}
+            imgSrc={review.multimedia?.src}
             byline={reviewer}
           />
         )}

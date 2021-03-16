@@ -51,7 +51,7 @@ const Review: React.FunctionComponent<IProps> = ({
           {publicationDate}
         </Info>
         <Summary>{summaryShort}</Summary>
-        <A href={linkUrl}>
+        <A href={linkUrl} target="_blank">
           <RiExternalLinkLine />
           {suggestedLinkText}
         </A>
@@ -76,11 +76,12 @@ const Dl = styled.dl`
   padding: 1rem;
 `;
 
-const Pick = styled.div`
+export const Pick = styled.div`
   display: flex;
   align-items: flex-end;
   text-transform: uppercase;
   font-weight: 800;
+  margin-bottom: 0.5rem;
 `;
 
 const Dt = styled.dt`
