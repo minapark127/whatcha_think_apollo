@@ -1,7 +1,9 @@
+import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import { IReview, IReviewer, ISearchVars } from "../apiSchema";
 import Loading from "../components/Loading";
+import Message from "../components/Message";
 import MoreReviews from "../components/MoreReviews";
 import Review from "../components/Review";
 
@@ -57,35 +59,47 @@ const ReviewDetail: React.FunctionComponent = () => {
     IReviewer,
     IRSearchVars
   >(GET_REVIEWER, {
-    variables: { reviewer: data?.search[0].byline },
+    skip: !data || !data.search,
+    variables: { reviewer: data && data.search && data.search[0].byline },
   });
 
   return (
     <>
       <main>
         {loading ? <Loading /> : null}
-        {error ? <h1>ERROR!</h1> : null}
+        {error ? <Message message="something went wrong. try again" /> : null}
+
         {!loading && data && (
-          <Review
-            displayTitle={data?.search[0].display_title}
-            byline={data?.search[0].byline}
-            criticsPick={data?.search[0].critics_pick}
-            headline={data?.search[0].headline}
-            summaryShort={data?.search[0].summary_short}
-            publicationDate={data?.search[0].publication_date}
-            linkUrl={data?.search[0].link.url}
-            suggestedLinkText={data?.search[0].link.suggested_link_text}
-            imgSrc={data?.search[0].multimedia?.src}
-          />
+          <React.Fragment>
+            {!data ||
+              (!data.search ? (
+                <Message message="no results found" />
+              ) : (
+                <Review
+                  displayTitle={data?.search[0].display_title}
+                  byline={data?.search[0].byline}
+                  criticsPick={data?.search[0].critics_pick}
+                  headline={data?.search[0].headline}
+                  summaryShort={data?.search[0].summary_short}
+                  publicationDate={data?.search[0].publication_date}
+                  linkUrl={data?.search[0].link.url}
+                  suggestedLinkText={data?.search[0].link.suggested_link_text}
+                  imgSrc={data?.search[0].multimedia?.src}
+                />
+              ))}
+          </React.Fragment>
         )}
         {!loading && Rloading ? <Loading /> : null}
-        {Rerror ? <h1>ERROR!</h1> : null}
+        {Rerror ? <Message message="something went wrong. try again" /> : null}
         {!loading && data && !Rloading && Rdata && (
-          <MoreReviews
-            reviews={Rdata.reviewer}
-            reviewer={data?.search[0].byline}
-            currentTitle={data?.search[0].display_title}
-          />
+          <React.Fragment>
+            {!Rdata.reviewer && <Message message="no results found" />}
+            <MoreReviews
+              reviews={Rdata.reviewer}
+              reviewer={data?.search[0].byline}
+              currentTitle={data?.search[0].display_title}
+            />
+          </React.Fragment>
         )}
       </main>
     </>

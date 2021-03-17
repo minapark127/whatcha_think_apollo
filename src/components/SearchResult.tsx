@@ -12,6 +12,7 @@ interface IProps {
   headline: string;
   publicationDate: string;
   imgSrc?: string;
+  last: number;
 }
 
 const SearchResult: React.FC<IProps> = ({
@@ -21,9 +22,10 @@ const SearchResult: React.FC<IProps> = ({
   headline,
   publicationDate,
   imgSrc,
+  last,
 }) => {
   return (
-    <Wrapper>
+    <Wrapper last={last}>
       <Date>{publicationDate}</Date>
 
       <Link to={`/review/${displayTitle}`}>
@@ -48,12 +50,13 @@ const SearchResult: React.FC<IProps> = ({
   );
 };
 
-const Wrapper = styled.section`
+const Wrapper = styled.section<{ last: number }>`
   display: grid;
   grid-template-columns: max-content 2fr minmax(100px, 280px);
   column-gap: 2rem;
   padding: 2rem 1.5rem;
-  border-bottom: 1px solid ${(props) => props.theme.colors.warmGrey};
+  border-bottom: ${(props) =>
+    props.last ? "none" : `1px solid ${props.theme.colors.warmGrey}`};
 `;
 
 const Date = styled.span`
