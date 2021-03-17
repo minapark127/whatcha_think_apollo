@@ -19,13 +19,17 @@ const GlobalStyles = createGlobalStyle`
     main{
         width: 100%;
         max-width: 1200px;
-        min-height: 50vh;
+        min-height: 65vh;
         margin: 3rem auto;
     }
     
     a{
         text-decoration: none;
         color: inherit;
+    }
+
+    header, footer{
+        padding: 0.5em 1.5rem;
     }
 `;
 

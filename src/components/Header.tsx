@@ -50,7 +50,6 @@ const slideAnimation = css`
 `;
 
 const SHeader = styled.header`
-  padding: 0.5em 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;

@@ -21,8 +21,8 @@ const Wrapper = styled.section`
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 5rem;
+  min-height: 75vh;
 `;
 
 const Container = styled.div`

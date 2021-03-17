@@ -3,6 +3,7 @@ import Home from "../routes/Home";
 import ReviewDetail from "../routes/ReviewDetail";
 import ReviewerDetail from "../routes/ReviewerDetail";
 import SearchDetail from "../routes/SearchDetail";
+import Footer from "./Footer";
 import Header from "./Header";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/reviewer/:reviewer" component={ReviewerDetail} />
         <Route path="/search/:query" component={SearchDetail} />
       </HashRouter>
+      <Footer />
     </div>
   );
 }
