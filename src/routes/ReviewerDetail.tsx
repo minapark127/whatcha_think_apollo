@@ -1,7 +1,10 @@
+import React from "react";
 import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
 import { IReviewer } from "../apiSchema";
+import Loading from "../components/Loading";
+import SearchLayout from "../components/SearchLayout";
+import SearchResult from "../components/SearchResult";
 
 interface IParams {
   reviewer: string;
@@ -16,6 +19,12 @@ const GET_REVIEWER = gql`
     reviewer(reviewer: $reviewer) {
       display_title
       critics_pick
+      byline
+      headline
+      publication_date
+      multimedia {
+        src
+      }
     }
   }
 `;
@@ -32,16 +41,29 @@ const ReviewerDetail = () => {
 
   return (
     <>
-      <h2>reviewer detail for {reviewer}</h2>
-      {!loading &&
-        data?.reviewer.map((review, index) => (
-          <section key={index}>
-            <Link to={`/review/${review.display_title}`}>
-              <div>{review.display_title}</div>
-            </Link>
-            <div>{review.critics_pick ? "critic's pick" : "x"}</div>
-          </section>
-        ))}
+      <main>
+        <SearchLayout reviewer={reviewer}>
+          {loading ? <Loading /> : null}
+          {error ? <h1>ERROR!</h1> : null}
+
+          {!loading &&
+            data?.reviewer.map((review, index) => (
+              <React.Fragment key={index}>
+                {review.display_title && (
+                  <SearchResult
+                    key={index}
+                    criticsPick={review.critics_pick}
+                    byline={review.byline}
+                    displayTitle={review.display_title}
+                    headline={review.headline}
+                    publicationDate={review.publication_date}
+                    imgSrc={review.multimedia?.src}
+                  />
+                )}
+              </React.Fragment>
+            ))}
+        </SearchLayout>
+      </main>
     </>
   );
 };
