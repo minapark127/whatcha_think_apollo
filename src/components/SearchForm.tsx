@@ -23,7 +23,7 @@ const SearchForm: React.FunctionComponent = () => {
       <Input
         onChange={onChange}
         type="text"
-        placeholder="browse movie reviews by The New York Times..."
+        placeholder="browse reviews by The New York Times..."
         autoFocus
       />
     </Form>

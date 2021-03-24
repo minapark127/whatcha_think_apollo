@@ -8,6 +8,7 @@ export const media = {
   w1024: mediaQuery(1024),
   w768: mediaQuery(768),
   w576: mediaQuery(576),
+  w320: mediaQuery(320),
 };
 
 const GlobalStyles = createGlobalStyle`

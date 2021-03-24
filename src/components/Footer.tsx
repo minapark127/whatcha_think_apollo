@@ -4,6 +4,7 @@ import { IoMailOutline } from "react-icons/io5";
 import { FiGithub } from "react-icons/fi";
 import { RiLinkedinBoxLine } from "react-icons/ri";
 import { IconContext } from "react-icons";
+import { media } from "../styles/GlobalStyles";
 
 const Footer = () => (
   <SFooter>
@@ -42,34 +43,6 @@ const Footer = () => (
   </SFooter>
 );
 
-const SFooter = styled.footer`
-  min-height: 20vh;
-  margin-top: 10rem;
-  padding-bottom: 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-top: 1px solid ${(props) => props.theme.colors.warmGrey};
-  opacity: 0.6;
-  ul {
-    display: flex;
-    li:not(:last-child),
-    a:not(:last-child) {
-      margin-right: 0.6rem;
-    }
-  }
-`;
-
-const Contact = styled.ul`
-  margin-bottom: 0.4rem;
-  align-items: flex-end;
-  a {
-    :hover {
-      color: ${(props) => props.theme.colors.warmGrey};
-    }
-  }
-`;
-
 const Credit = styled.div`
   display: flex;
   align-items: flex-end;
@@ -83,5 +56,68 @@ const Credit = styled.div`
     }
   }
 `;
+
+const SFooter = styled.footer`
+  min-height: 20vh;
+  margin-top: 10rem;
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid ${(props) => props.theme.colors.warmGrey};
+  opacity: 0.6;
+  ul {
+    display: flex;
+    li:not(:last-child),
+    a:not(:last-child) {
+      margin-right: 0.5em;
+    }
+  }
+  ${media.w576} {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2rem;
+    ul {
+      margin-bottom: 0.4rem;
+    }
+  }
+  ${media.w320} {
+    ul:last-child,
+    ${Credit} {
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.5em;
+      margin-bottom: 2rem;
+    }
+  }
+`;
+
+const Contact = styled.ul`
+  margin-bottom: 0.4rem;
+  align-items: flex-end;
+  a {
+    :hover {
+      color: ${(props) => props.theme.colors.warmGrey};
+    }
+  }
+  ${media.w576} {
+    justify-content: center;
+  }
+`;
+
+// const Credit = styled.div`
+//   display: flex;
+//   align-items: flex-end;
+//   svg {
+//     margin-right: 3px;
+//   }
+//   a {
+//     font-family: ${(props) => props.theme.fonts.title};
+//     :hover {
+//       text-decoration: underline;
+//     }
+//   }
+// `;
 
 export default Footer;
