@@ -31,8 +31,9 @@ const SearchForm: React.FunctionComponent = () => {
 };
 
 const Form = styled.form`
-  width: 25vw;
+  width: 100%;
 `;
+
 const Input = styled.input`
   all: unset;
   width: 100%;

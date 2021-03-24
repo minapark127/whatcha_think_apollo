@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled, { css } from "styled-components";
 import SearchForm from "./SearchForm";
 import { IconContext } from "react-icons";
 import { RiSearchLine } from "react-icons/ri";
 import { hiddenToShow } from "../styles/animations";
+import { media } from "../styles/GlobalStyles";
 
 interface WrapperProps {
   onClick: () => void;
@@ -23,11 +24,22 @@ const Header = () => {
     setShowSearch(!showSearch);
   };
 
+  const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setInnerWidth(window.innerWidth));
+    return () => {
+      window.removeEventListener("resize", () =>
+        setInnerWidth(window.innerWidth)
+      );
+    };
+  });
+
   return (
     <>
       <SHeader>
         <Link to="/">
-          <Logo>WHATCHA THINK</Logo>
+          <Logo>{innerWidth > 576 ? `WHATCHA THINK` : `W`}</Logo>
         </Link>
 
         <SearchContainer animation={showSearch}>
@@ -57,7 +69,7 @@ const SHeader = styled.header`
 
 const Logo = styled.h1`
   font-family: ${(props) => props.theme.fonts.title};
-  font-size: 2rem;
+  font-size: 2em;
   text-transform: uppercase;
 `;
 
@@ -68,6 +80,13 @@ const SearchContainer = styled.section<{ animation: boolean }>`
   .searchIcon {
     cursor: pointer;
     color: ${(props) => props.theme.colors.black};
+  }
+  width: ${(props) => (props.animation ? `30%` : null)};
+  ${media.w1024} {
+    width: ${(props) => (props.animation ? `50%` : null)};
+  }
+  ${media.w576} {
+    width: ${(props) => (props.animation ? `80%` : null)};
   }
 `;
 

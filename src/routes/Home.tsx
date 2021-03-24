@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import SearchForm from "../components/SearchForm";
 import styled from "styled-components";
 import Message from "../components/Message";
+import { media } from "../styles/GlobalStyles";
 
 interface Reviews {
   reviews: Review[];
@@ -56,10 +57,20 @@ const Home = () => {
 };
 
 const Div = styled.div`
-  padding: 5rem 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  padding: 5rem 1rem;
+  margin: 0 auto;
+  width: 60%;
+  ${media.w1024} {
+    width: 80%;
+  }
+  ${media.w768} {
+    width: 90%;
+    padding: 3.5rem 1rem;
+  }
+  ${media.w576} {
+    width: 100%;
+    padding: 2rem 1rem;
+  }
 `;
 
 export default Home;

@@ -1,6 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 import { reset } from "styled-reset";
 
+const mediaQuery = (maxWidth: number) => `@media (max-width: ${maxWidth}px)`;
+
+export const media = {
+  custom: mediaQuery,
+  w1024: mediaQuery(1024),
+  w768: mediaQuery(768),
+  w576: mediaQuery(576),
+};
+
 const GlobalStyles = createGlobalStyle`
     ${reset}
 
@@ -14,6 +23,9 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${(props) => props.theme.fonts.main};
         color: ${(props) => props.theme.colors.black};
         background-color:${(props) => props.theme.colors.lightGrey};
+        ${media.w768} {
+            font-size: 14px;
+        }
     }
 
     main{
