@@ -6,8 +6,9 @@ interface IProps {
 
 const Wrapper = styled.figure<IProps>`
   position: relative;
-  background-color: ${(props) => props.theme.colors.warmGrey};
+  background-color: ${(props) => props.theme.colors.lightGrey};
   padding-top: 66.66%; // 3:2 propportion
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   overflow: hidden;
   img {
     position: absolute;

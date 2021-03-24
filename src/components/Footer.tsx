@@ -30,7 +30,7 @@ const Footer = () => (
       </Contact>
       <ul>
         <li>&copy; {new Date().getFullYear()}</li>
-        <li>Mina Park</li>
+        <li>WHATCHA THINK</li>
         <li>All rights reserved</li>
       </ul>
     </section>

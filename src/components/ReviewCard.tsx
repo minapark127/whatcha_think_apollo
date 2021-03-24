@@ -32,7 +32,7 @@ const ReviewCard: React.FunctionComponent<IProps> = ({
 };
 
 const H2 = styled.h2`
-  font-size: 1.4rem;
+  font-size: 1.4em;
   font-weight: 700;
   line-height: 1.23;
 

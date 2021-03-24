@@ -34,6 +34,16 @@ const GlobalStyles = createGlobalStyle`
         max-width: 1200px;
         min-height: 65vh;
         margin: 3rem auto;
+        ${media.custom(1200)}{
+            padding: 0 1.5rem;
+            font-size: 0.85rem;
+        }
+        ${media.w1024} {
+            font-size: 0.75rem;
+        }
+        ${media.w320}{
+            padding: 0 0.5rem;
+        }
     }
     
     a{
@@ -43,6 +53,9 @@ const GlobalStyles = createGlobalStyle`
 
     header, footer{
         padding: 0.5em 1.5rem;
+        ${media.w320}{
+            padding: 0.5rem;
+        }
     }
 `;
 

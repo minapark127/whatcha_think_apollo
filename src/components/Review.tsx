@@ -3,6 +3,7 @@ import { SiNewyorktimes } from "react-icons/si";
 import { RiExternalLinkLine } from "react-icons/ri";
 import styled from "styled-components";
 import ImgWrapper from "./ImgWrapper";
+import { media } from "../styles/GlobalStyles";
 
 interface IProps {
   displayTitle: string;
@@ -62,11 +63,18 @@ const Review: React.FunctionComponent<IProps> = ({
 
 const Wrapper = styled.section`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  align-items: center;
   column-gap: 1rem;
   line-height: 1.2;
   svg {
     margin-right: 3px;
+  }
+  ${media.w576} {
+    grid-template-columns: minmax(200px, 1fr);
+    grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+    align-items: start;
+    row-gap: 1rem;
   }
 `;
 
@@ -74,6 +82,9 @@ const Dl = styled.dl`
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  ${media.w576} {
+    padding: 0.2rem;
+  }
 `;
 
 export const Pick = styled.div`
@@ -85,7 +96,7 @@ export const Pick = styled.div`
 `;
 
 const Dt = styled.dt`
-  font-size: 1.8rem;
+  font-size: 1.8em;
   font-family: ${(props) => props.theme.fonts.title};
   padding: 0.3rem 0 1rem 0;
 `;
@@ -93,7 +104,7 @@ const Dt = styled.dt`
 const Info = styled.dd`
   opacity: 0.7;
   margin-bottom: 1rem;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   a {
     font-size: 1rem;
     font-family: ${(props) => props.theme.fonts.title};
@@ -105,7 +116,7 @@ const Info = styled.dd`
 `;
 
 const Summary = styled.dd`
-  font-size: 1.2rem;
+  font-size: 1.2em;
   letter-spacing: 1px;
   margin-bottom: 1rem;
 `;
