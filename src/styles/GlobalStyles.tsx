@@ -24,8 +24,14 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${(props) => props.theme.fonts.main};
         color: ${(props) => props.theme.colors.black};
         background-color:${(props) => props.theme.colors.lightGrey};
+        ${media.custom(1200)}{
+            font-size: 0.85rem;
+        }
+        ${media.w1024} {
+            font-size: 0.75rem;
+        }
         ${media.w768} {
-            font-size: 14px;
+            font-size: 0.7rem;
         }
     }
 
@@ -36,10 +42,6 @@ const GlobalStyles = createGlobalStyle`
         margin: 3rem auto;
         ${media.custom(1200)}{
             padding: 0 1.5rem;
-            font-size: 0.85rem;
-        }
-        ${media.w1024} {
-            font-size: 0.75rem;
         }
         ${media.w320}{
             padding: 0 0.5rem;

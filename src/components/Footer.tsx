@@ -66,6 +66,7 @@ const SFooter = styled.footer`
   align-items: flex-end;
   border-top: 1px solid ${(props) => props.theme.colors.warmGrey};
   opacity: 0.6;
+  font-size: 0.9em;
   ul {
     display: flex;
     li:not(:last-child),
