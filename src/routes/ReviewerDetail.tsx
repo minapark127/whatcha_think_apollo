@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import SearchLayout from "../components/SearchLayout";
 import SearchResult from "../components/SearchResult";
 import Message from "../components/Message";
+import { Helmet } from "react-helmet";
 
 interface IParams {
   reviewer: string;
@@ -42,6 +43,9 @@ const ReviewerDetail = () => {
 
   return (
     <>
+      <Helmet>
+        <title>whatcha think | {reviewer}</title>
+      </Helmet>
       <main>
         <SearchLayout reviewer={reviewer}>
           {loading ? <Loading /> : null}

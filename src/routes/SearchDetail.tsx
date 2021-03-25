@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import Message from "../components/Message";
 import SearchLayout from "../components/SearchLayout";
 import SearchResult from "../components/SearchResult";
+import { Helmet } from "react-helmet";
 
 interface IParams {
   query: string;
@@ -33,6 +34,9 @@ const SearchDetail = () => {
   });
   return (
     <>
+      <Helmet>
+        <title>whatcha think | {query}</title>
+      </Helmet>
       <main>
         <SearchLayout query={query}>
           {loading ? <Loading /> : null}

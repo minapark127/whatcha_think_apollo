@@ -7,6 +7,7 @@ import SearchForm from "../components/SearchForm";
 import styled from "styled-components";
 import Message from "../components/Message";
 import { media } from "../styles/GlobalStyles";
+import { Helmet } from "react-helmet";
 
 interface Reviews {
   reviews: Review[];
@@ -35,6 +36,9 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>whatcha think</title>
+      </Helmet>
       <Div>
         <SearchForm />
       </Div>

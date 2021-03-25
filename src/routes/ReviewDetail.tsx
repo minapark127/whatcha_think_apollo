@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import Message from "../components/Message";
 import MoreReviews from "../components/MoreReviews";
 import Review from "../components/Review";
+import { Helmet } from "react-helmet";
 
 interface IParams {
   title: string;
@@ -65,6 +66,9 @@ const ReviewDetail: React.FunctionComponent = () => {
 
   return (
     <>
+      <Helmet>
+        <title>whatcha think | {title}</title>
+      </Helmet>
       <main>
         {loading ? <Loading /> : null}
         {error ? <Message message="something went wrong. try again" /> : null}
