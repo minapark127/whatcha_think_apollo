@@ -36,7 +36,7 @@ const Title = styled.div`
 const Search = styled.span`
   font-family: ${(props) => props.theme.fonts.title};
   text-decoration: underline;
-  font-size: 1.15rem;
+  font-size: 1.15em;
   padding: 0 3px;
 `;
 

@@ -60,7 +60,7 @@ const ReviewerDetail = () => {
                       headline={review.headline}
                       publicationDate={review.publication_date}
                       imgSrc={review.multimedia?.src}
-                      last={index - 1 === data.reviewer.length ? 1 : 0}
+                      last={index === data.reviewer.length - 1 ? 1 : 0}
                     />
                   )}
                 </React.Fragment>

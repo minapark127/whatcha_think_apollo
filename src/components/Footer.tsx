@@ -106,18 +106,4 @@ const Contact = styled.ul`
   }
 `;
 
-// const Credit = styled.div`
-//   display: flex;
-//   align-items: flex-end;
-//   svg {
-//     margin-right: 3px;
-//   }
-//   a {
-//     font-family: ${(props) => props.theme.fonts.title};
-//     :hover {
-//       text-decoration: underline;
-//     }
-//   }
-// `;
-
 export default Footer;

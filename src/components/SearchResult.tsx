@@ -3,6 +3,7 @@ import { SiNewyorktimes } from "react-icons/si";
 import styled from "styled-components";
 import ImgWrapper from "./ImgWrapper";
 import { Pick } from "./Review";
+import { media } from "../styles/GlobalStyles";
 
 interface IProps {
   key: number;
@@ -57,11 +58,23 @@ const Wrapper = styled.section<{ last: number }>`
   padding: 2rem 1.5rem;
   border-bottom: ${(props) =>
     props.last ? "none" : `1px solid ${props.theme.colors.warmGrey}`};
+  ${media.w768} {
+    column-gap: 1rem;
+    grid-template-columns: max-content 2fr minmax(100px, 250px);
+  }
+  ${media.w576} {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    padding: 1rem 0;
+  }
+  ${media.w320} {
+    padding: 0.5rem 0;
+  }
 `;
 
 const Date = styled.span`
   opacity: 0.6;
-  font-size: 0.95rem;
+  font-size: 0.95em;
   margin-top: 0.3rem;
 `;
 
@@ -76,7 +89,7 @@ const Dl = styled.dl`
   }
   dt {
     font-family: ${(props) => props.theme.fonts.title};
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-weight: 600;
     margin-bottom: 0.7rem;
   }
